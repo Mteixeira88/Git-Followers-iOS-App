@@ -20,6 +20,7 @@ class GFTextField: UITextField {
     }
     
     private func configure() {
+        // Always add "translatesAutoresizingMaskIntoConstraints" to new Views to allow the constraints to work
         translatesAutoresizingMaskIntoConstraints = false
         
         layer.cornerRadius = 10

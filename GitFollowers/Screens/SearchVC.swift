@@ -32,7 +32,7 @@ class SearchVC: UIViewController {
     // If using viewDidLoad it only would do that the first time you enter the app
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     

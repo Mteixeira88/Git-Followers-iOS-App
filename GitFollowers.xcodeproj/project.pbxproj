@@ -18,6 +18,8 @@
 		161DF85623BF65FC00B4EBA9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF85523BF65FC00B4EBA9 /* User.swift */; };
 		1629FC6723C3A0ED0065FC4D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1629FC6623C3A0ED0065FC4D /* NetworkManager.swift */; };
 		1629FC6A23C3DF1B0065FC4D /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1629FC6923C3DF1B0065FC4D /* ErrorMessage.swift */; };
+		1629FC6D23C4EC8F0065FC4D /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1629FC6C23C4EC8F0065FC4D /* FollowerCell.swift */; };
+		1629FC6F23C4ED0B0065FC4D /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1629FC6E23C4ED0B0065FC4D /* GFAvatarImageView.swift */; };
 		16D95C9623B93FE200D9B1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D95C9523B93FE200D9B1C6 /* AppDelegate.swift */; };
 		16D95C9823B93FE200D9B1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D95C9723B93FE200D9B1C6 /* SceneDelegate.swift */; };
 		16D95C9F23B93FE300D9B1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16D95C9E23B93FE300D9B1C6 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		161DF85523BF65FC00B4EBA9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1629FC6623C3A0ED0065FC4D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1629FC6923C3DF1B0065FC4D /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		1629FC6C23C4EC8F0065FC4D /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		1629FC6E23C4ED0B0065FC4D /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		16D95C9223B93FE200D9B1C6 /* GitFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D95C9523B93FE200D9B1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16D95C9723B93FE200D9B1C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,10 +77,12 @@
 		161DF84F23BF54A800B4EBA9 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				1629FC6B23C4EC690065FC4D /* Cells */,
 				161DF84023BE42CD00B4EBA9 /* GFButton.swift */,
 				161DF84223BE451900B4EBA9 /* GFTextField.swift */,
 				161DF84623BF47C500B4EBA9 /* GFTitleLabel.swift */,
 				161DF84823BF492D00B4EBA9 /* GFBodyLabel.swift */,
+				1629FC6E23C4ED0B0065FC4D /* GFAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 				1629FC6923C3DF1B0065FC4D /* ErrorMessage.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1629FC6B23C4EC690065FC4D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1629FC6C23C4EC8F0065FC4D /* FollowerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		16D95C8923B93FE200D9B1C6 = {
@@ -231,8 +245,10 @@
 				16D95CAC23B966C500D9B1C6 /* FavoritesListVC.swift in Sources */,
 				161DF84123BE42CD00B4EBA9 /* GFButton.swift in Sources */,
 				161DF84D23BF505700B4EBA9 /* UIViewController+Ext.swift in Sources */,
+				1629FC6F23C4ED0B0065FC4D /* GFAvatarImageView.swift in Sources */,
 				16D95CAA23B966A600D9B1C6 /* SearchVC.swift in Sources */,
 				161DF84B23BF4A9400B4EBA9 /* GFAlertVC.swift in Sources */,
+				1629FC6D23C4EC8F0065FC4D /* FollowerCell.swift in Sources */,
 				1629FC6A23C3DF1B0065FC4D /* ErrorMessage.swift in Sources */,
 				161DF84923BF492D00B4EBA9 /* GFBodyLabel.swift in Sources */,
 				161DF85423BF64B600B4EBA9 /* Follower.swift in Sources */,

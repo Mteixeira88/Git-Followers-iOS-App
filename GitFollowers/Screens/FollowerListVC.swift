@@ -51,11 +51,13 @@ class FollowerListVC: UIViewController {
     }
     
     func getFollowers(username: String, page: Int) {
-        // Captures List - [weak self] avoids memory linking
+        showLoadingView()
+        // Captures List - [weak self] avoids memory leaking
         // ARC (Automatic Reference Counting) will never go above 1 like this
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             // self becomes an optional when using weak
             guard let self = self else { return }
+            self.dismissLoadingView()
             switch result {
             case .success(let followers):
                 if followers.count < 100 {

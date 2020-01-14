@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161DE3B323CE16A700DBBDD9 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DE3B223CE16A700DBBDD9 /* GFEmptyStateView.swift */; };
 		161DF84123BE42CD00B4EBA9 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84023BE42CD00B4EBA9 /* GFButton.swift */; };
 		161DF84323BE451900B4EBA9 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84223BE451900B4EBA9 /* GFTextField.swift */; };
 		161DF84523BE5C1000B4EBA9 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84423BE5C1000B4EBA9 /* FollowerListVC.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161DE3B223CE16A700DBBDD9 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		161DF84023BE42CD00B4EBA9 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		161DF84223BE451900B4EBA9 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		161DF84423BE5C1000B4EBA9 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
@@ -65,6 +67,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161DE3AB23CE164200DBBDD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				161DE3B223CE16A700DBBDD9 /* GFEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		161DE3AC23CE164C00DBBDD9 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				161DF84023BE42CD00B4EBA9 /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		161DE3AE23CE165F00DBBDD9 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				161DF84223BE451900B4EBA9 /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		161DE3AF23CE166800DBBDD9 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				1629FC6E23C4ED0B0065FC4D /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		161DE3B023CE167100DBBDD9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		161DE3B123CE168400DBBDD9 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				161DF84623BF47C500B4EBA9 /* GFTitleLabel.swift */,
+				161DF84823BF492D00B4EBA9 /* GFBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		161DF84E23BF549400B4EBA9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +129,13 @@
 		161DF84F23BF54A800B4EBA9 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				161DE3B123CE168400DBBDD9 /* Labels */,
+				161DE3B023CE167100DBBDD9 /* ViewControllers */,
+				161DE3AF23CE166800DBBDD9 /* ImageViews */,
+				161DE3AE23CE165F00DBBDD9 /* TextFields */,
+				161DE3AC23CE164C00DBBDD9 /* Buttons */,
+				161DE3AB23CE164200DBBDD9 /* Views */,
 				1629FC6B23C4EC690065FC4D /* Cells */,
-				161DF84023BE42CD00B4EBA9 /* GFButton.swift */,
-				161DF84223BE451900B4EBA9 /* GFTextField.swift */,
-				161DF84623BF47C500B4EBA9 /* GFTitleLabel.swift */,
-				161DF84823BF492D00B4EBA9 /* GFBodyLabel.swift */,
-				1629FC6E23C4ED0B0065FC4D /* GFAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -257,6 +308,7 @@
 				161DF84923BF492D00B4EBA9 /* GFBodyLabel.swift in Sources */,
 				161DF85423BF64B600B4EBA9 /* Follower.swift in Sources */,
 				161DF84723BF47C500B4EBA9 /* GFTitleLabel.swift in Sources */,
+				161DE3B323CE16A700DBBDD9 /* GFEmptyStateView.swift in Sources */,
 				1629FC6723C3A0ED0065FC4D /* NetworkManager.swift in Sources */,
 				161DF84523BE5C1000B4EBA9 /* FollowerListVC.swift in Sources */,
 				16D95C9623B93FE200D9B1C6 /* AppDelegate.swift in Sources */,

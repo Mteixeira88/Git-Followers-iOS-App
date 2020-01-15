@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161DE3B323CE16A700DBBDD9 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DE3B223CE16A700DBBDD9 /* GFEmptyStateView.swift */; };
+		161DE3BE23CF206C00DBBDD9 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DE3BD23CF206C00DBBDD9 /* UserInfoVC.swift */; };
 		161DF84123BE42CD00B4EBA9 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84023BE42CD00B4EBA9 /* GFButton.swift */; };
 		161DF84323BE451900B4EBA9 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84223BE451900B4EBA9 /* GFTextField.swift */; };
 		161DF84523BE5C1000B4EBA9 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161DF84423BE5C1000B4EBA9 /* FollowerListVC.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		161DE3B223CE16A700DBBDD9 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
+		161DE3BD23CF206C00DBBDD9 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		161DF84023BE42CD00B4EBA9 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		161DF84223BE451900B4EBA9 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		161DF84423BE5C1000B4EBA9 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				16D95CA923B966A600D9B1C6 /* SearchVC.swift */,
 				16D95CAB23B966C500D9B1C6 /* FavoritesListVC.swift */,
 				161DF84423BE5C1000B4EBA9 /* FollowerListVC.swift */,
+				161DE3BD23CF206C00DBBDD9 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				161DF84523BE5C1000B4EBA9 /* FollowerListVC.swift in Sources */,
 				16D95C9623B93FE200D9B1C6 /* AppDelegate.swift in Sources */,
 				16D95C9823B93FE200D9B1C6 /* SceneDelegate.swift in Sources */,
+				161DE3BE23CF206C00DBBDD9 /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

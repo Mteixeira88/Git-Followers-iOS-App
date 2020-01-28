@@ -39,6 +39,7 @@
 		27F374DE23E04D7F003E27FA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374DD23E04D7F003E27FA /* DateExtension.swift */; };
 		27F374E023E04D9B003E27FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374DF23E04D9B003E27FA /* StringExtension.swift */; };
 		27F374E223E0717D003E27FA /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374E123E0717D003E27FA /* PersistenceManager.swift */; };
+		27F374E423E08821003E27FA /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374E323E08821003E27FA /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		27F374DD23E04D7F003E27FA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		27F374DF23E04D9B003E27FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		27F374E123E0717D003E27FA /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		27F374E323E08821003E27FA /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				1629FC6C23C4EC8F0065FC4D /* FollowerCell.swift */,
+				27F374E323E08821003E27FA /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				16D95CAA23B966A600D9B1C6 /* SearchVC.swift in Sources */,
 				27F374E023E04D9B003E27FA /* StringExtension.swift in Sources */,
 				161DF84B23BF4A9400B4EBA9 /* GFAlertVC.swift in Sources */,
+				27F374E423E08821003E27FA /* FavoriteCell.swift in Sources */,
 				16A1F45523DF44B70040EF68 /* GFItemInfoView.swift in Sources */,
 				1629FC6D23C4EC8F0065FC4D /* FollowerCell.swift in Sources */,
 				1629FC6A23C3DF1B0065FC4D /* GFError.swift in Sources */,

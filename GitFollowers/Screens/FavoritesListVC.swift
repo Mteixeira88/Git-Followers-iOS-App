@@ -34,13 +34,14 @@ class FavoritesListVC: GFDataLoadingVC {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.removeExcessCells()
         tableView.frame = view.bounds
         tableView.rowHeight = 80
         tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
     }
     
     func getFavorites() {
-        PersinstanceManager.retrieveFavorites { [weak self] result in
+        PersinstenceManager.retrieveFavorites { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -88,16 +89,14 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        
-        tableView.deleteRows(at: [indexPath], with: .left)
-        
-        PersinstanceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] (error) in
+        PersinstenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] (error) in
             guard let self = self else {
                 return
             }
+            
             guard let error = error else {
+                self.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
                 return
             }
             self.presentGFAlertOnMainThread(title: "Not deleting", message: error.rawValue, buttonTitle: "Ok")

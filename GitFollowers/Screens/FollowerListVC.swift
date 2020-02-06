@@ -135,7 +135,7 @@ class FollowerListVC: GFDataLoadingVC {
             switch result {
             case .success(let user):
                 let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PersinstanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                PersinstenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
                     guard let self = self else {
                         return
                     }

@@ -9,15 +9,17 @@
 import UIKit
 
 enum SFSybmols {
-    static let location = "mappin.and.ellipse"
-    static let repos = "folder"
-    static let gists = "text.alignLeft"
-    static let followers = "heart"
-    static let following = "person.2"
+    static let location = UIImage(systemName: "mappin.and.ellipse")
+    static let repos = UIImage(systemName: "folder")
+    static let gists = UIImage(systemName: "text.alignLeft")
+    static let followers = UIImage(systemName: "heart")
+    static let following = UIImage(systemName: "person.2")
 }
 
 enum Images {
     static let ghLogo = UIImage(named: "gh-logo")
+    static let placeholderImage = UIImage(named: "avatar-placeholder")
+    static let emptyStateLogo = UIImage(named: "empty-state-logo")
 }
 
 enum ScreenSize {
@@ -43,5 +45,9 @@ enum DeviceTypes {
     
     static func isiPhoneXAspectRatio() -> Bool {
         return isiPhoneX || isiPhoneXsMaxAndXr
+    }
+    
+    static func isSmalliPhone() -> Bool {
+        return isiPhone8Zoomed || isiPhoneSE
     }
 }

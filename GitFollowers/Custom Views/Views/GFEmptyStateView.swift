@@ -34,20 +34,27 @@ class GFEmptyStateView: UIView {
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
-        logoImageView.image = UIImage(named: "empty-state-logo")
+        logoImageView.image = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let labelCenterConstant: CGFloat = DeviceTypes.isSmalliPhone() ? -80 : -150
+        let logoBottomConstant: CGFloat = DeviceTypes.isSmalliPhone() ? 80 : 40
+        
+        // conditional screen sizes ns layout constraint
+        NSLayoutConstraint.activate([
+            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: labelCenterConstant),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: logoBottomConstant)
+        ])
         
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150),
             messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             messageLabel.heightAnchor.constraint(equalToConstant: 200),
             
             logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
-            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 40)
+            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170)
         ])
         
     }

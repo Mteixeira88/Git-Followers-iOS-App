@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol FollowerListVCDelegate: class {
-    func didRequestFollowers(for username: String)
-}
-
 class FollowerListVC: GFDataLoadingVC {
     
     enum Section {
@@ -107,7 +103,7 @@ class FollowerListVC: GFDataLoadingVC {
             case.failure(let error):
                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
-            isLoadingMoreFollowers = false
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -199,7 +195,7 @@ extension FollowerListVC: UISearchResultsUpdating {
     }
 }
 
-extension FollowerListVC: FollowerListVCDelegate {
+extension FollowerListVC: UserInfoVCDelegate {
     func didRequestFollowers(for username: String) {
         self.username = username
         title = username

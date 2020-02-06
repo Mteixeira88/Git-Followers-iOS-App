@@ -39,6 +39,7 @@
 		27F1ED0923EC1E3200F1B99E /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F1ED0823EC1E3200F1B99E /* GFTabBarController.swift */; };
 		27F1ED0B23EC259B00F1B99E /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F1ED0A23EC259B00F1B99E /* GFAlertContainerView.swift */; };
 		27F1ED0D23EC2B3300F1B99E /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F1ED0C23EC2B3300F1B99E /* GFDataLoadingVC.swift */; };
+		27F1ED0F23EC331F00F1B99E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F1ED0E23EC331F00F1B99E /* UIViewExtension.swift */; };
 		27F374DE23E04D7F003E27FA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374DD23E04D7F003E27FA /* DateExtension.swift */; };
 		27F374E223E0717D003E27FA /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374E123E0717D003E27FA /* PersistenceManager.swift */; };
 		27F374E423E08821003E27FA /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F374E323E08821003E27FA /* FavoriteCell.swift */; };
@@ -79,6 +80,7 @@
 		27F1ED0823EC1E3200F1B99E /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		27F1ED0A23EC259B00F1B99E /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
 		27F1ED0C23EC2B3300F1B99E /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
+		27F1ED0E23EC331F00F1B99E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		27F374DD23E04D7F003E27FA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		27F374E123E0717D003E27FA /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		27F374E323E08821003E27FA /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				161DF84C23BF505700B4EBA9 /* UIViewController+Ext.swift */,
 				27F374DD23E04D7F003E27FA /* DateExtension.swift */,
+				27F1ED0E23EC331F00F1B99E /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				161DF84123BE42CD00B4EBA9 /* GFButton.swift in Sources */,
 				161DF84D23BF505700B4EBA9 /* UIViewController+Ext.swift in Sources */,
 				1629FC7123C5F17B0065FC4D /* UIHelper.swift in Sources */,
+				27F1ED0F23EC331F00F1B99E /* UIViewExtension.swift in Sources */,
 				16A1F45723DF48FE0040EF68 /* GFItemInfoVC.swift in Sources */,
 				16A1F45323DF34670040EF68 /* Constants.swift in Sources */,
 				1629FC6F23C4ED0B0065FC4D /* GFAvatarImageView.swift in Sources */,

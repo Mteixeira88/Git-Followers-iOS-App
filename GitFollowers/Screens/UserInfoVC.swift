@@ -1,30 +1,20 @@
-//
-//  UserInfoVC.swift
-//  GitFollowers
-//
-//  Created by Miguel Teixeira on 15/01/2020.
-//  Copyright © 2020 Miguel Teixeira. All rights reserved.
-//
-
 import UIKit
 
 protocol UserInfoVCDelegate: class {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
 
-class UserInfoVC: UIViewController {
+class UserInfoVC: GFDataLoadingVC {
     
-    let headerView = UIView()
-    let itemViewOne = UIView()
-    let itemViewTwo = UIView()
-    let dateLabel = GFBodyLabel(textAlignment: .center)
-    
-    weak var delegate: FollowerListVCDelegate!
-    
-    var itemViews = [UIView]()
+    let headerView          = UIView()
+    let itemViewOne         = UIView()
+    let itemViewTwo         = UIView()
+    let dateLabel           = GFBodyLabel(textAlignment: .center)
+    var itemViews: [UIView] = []
     
     var username: String!
+    weak var delegate: UserInfoVCDelegate!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +23,13 @@ class UserInfoVC: UIViewController {
         getUserInfo()
     }
     
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismssVC))
         navigationItem.rightBarButtonItem = doneButton
     }
+    
     
     func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
@@ -45,32 +37,26 @@ class UserInfoVC: UIViewController {
             
             switch result {
             case .success(let user):
-                DispatchQueue.main.async {
-                    self.configureUIElements(with: user)
-                }
+                DispatchQueue.main.async { self.configureUIElements(with: user) }
+                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
     
+    
     func configureUIElements(with user: User) {
-        
-        let repoItemVC = GFRepoItemVC(user: user)
-        repoItemVC.delegate = self
-        self.add(childVC: repoItemVC, to: self.itemViewOne)
-        
-        let followerItemVC = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-        self.add(childVC: followerItemVC, to: self.itemViewTwo)
-        
+        self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GFFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-        self.dateLabel.text = "Github since \(user.createdAt.convertToMonthYearFormat())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
     }
     
+    
     func layoutUI() {
-        let padding = CGFloat(20)
-        let itemHeight = CGFloat(140)
+        let padding: CGFloat    = 20
+        let itemHeight: CGFloat = 140
         
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
@@ -79,14 +65,14 @@ class UserInfoVC: UIViewController {
             itemView.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                itemView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-                itemView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
             ])
         }
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180),
+            headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
@@ -95,9 +81,10 @@ class UserInfoVC: UIViewController {
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
             dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            dateLabel.heightAnchor.constraint(equalToConstant: 18)
+            dateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
     
     func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
@@ -106,28 +93,35 @@ class UserInfoVC: UIViewController {
         childVC.didMove(toParent: self)
     }
     
-    @objc func dismissVC() {
+    
+    @objc func dismssVC() {
         dismiss(animated: true)
     }
 }
 
-extension UserInfoVC: UserInfoVCDelegate {
+
+extension UserInfoVC: GFRepoItemVCDelegate {
+    
     func didTapGitHubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url is invalid!", buttonTitle: "Ok")
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
         }
-        
+
         presentSafariVC(with: url)
     }
+}
+
+
+extension UserInfoVC: GFFollowerItemVCDelegate {
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
-            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers", buttonTitle: "Ok")
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😞.", buttonTitle: "So sad")
             return
         }
+        
         delegate.didRequestFollowers(for: user.login)
-        dismissVC()
+        dismssVC()
     }
-    
 }

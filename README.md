@@ -1,4 +1,4 @@
-# Git-Followers-iOS-App (Under development)
+# Git-Followers-iOS-App
 
 # Overview:
 

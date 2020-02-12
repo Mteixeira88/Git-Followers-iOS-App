@@ -39,16 +39,8 @@ class NetworkManager {
                 return
             }
             
-            do {
-                let decoder = JSONDecoder()
-                // Convert data from snake case to camel case
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                let followers = try decoder.decode([Follower].self, from: data)
-                completed(.success(followers))
-            } catch {
-                completed(.failure(.dataInvalid))
-            }
+            let followers: [Follower] = self.genericDecodable(data: data)
+            completed(.success(followers))
         }
         
         task.resume()
@@ -78,19 +70,23 @@ class NetworkManager {
                 return
             }
             
-            do {
-                let decoder = JSONDecoder()
-                // Convert data from snake case to camel case
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                decoder.dateDecodingStrategy = .iso8601
-                let user = try decoder.decode(User.self, from: data)
-                completed(.success(user))
-            } catch {
-                completed(.failure(.dataInvalid))
-            }
+            let user: User = self.genericDecodable(data: data)
+            completed(.success(user))
         }
         
         task.resume()
+    }
+    
+    func genericDecodable<T: Codable>(data: Data) -> T {
+        let decoder = JSONDecoder()
+        // Convert data from snake case to camel case
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        guard let result = try? decoder.decode(T.self, from: data) else {
+            fatalError("Something went wrong")
+        }
+        return result
+        
     }
     
     func dowloadImage(from urlString: String, completed: @escaping(UIImage?) -> Void) {

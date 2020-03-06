@@ -81,8 +81,8 @@ class FollowerListVC: GFDataLoadingVC {
         isLoadingMoreFollowers = true
         // Captures List - [weak self] avoids memory leaking
         // ARC (Automatic Reference Counting) will never go above 1 like this
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            // self becomes an optional when using weak
+        let url = "\(username)/followers?per_page=100&page=\(page)"
+        NetworkManager.shared.genericGet(for: [Follower].self, url: url, completed: { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
             switch result {
@@ -92,7 +92,21 @@ class FollowerListVC: GFDataLoadingVC {
                self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
             self.isLoadingMoreFollowers = false
-        }
+        })
+        
+        
+//        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+//            // self becomes an optional when using weak
+//            guard let self = self else { return }
+//            self.dismissLoadingView()
+//            switch result {
+//            case .success(let followers):
+//                self.updateUI(with: followers)
+//            case.failure(let error):
+//               self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//            self.isLoadingMoreFollowers = false
+//        }
     }
     
     func updateUI(with followers: [Follower]) {
@@ -131,7 +145,8 @@ class FollowerListVC: GFDataLoadingVC {
     
     @objc func addButtonTapped() {
         showLoadingView()
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+        
+        NetworkManager.shared.genericGet(for: User.self, url: username, completed: { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -142,7 +157,7 @@ class FollowerListVC: GFDataLoadingVC {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
-        }
+        })
     }
     
     func addUserToFavorites(user: User) {

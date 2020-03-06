@@ -49,7 +49,7 @@ class UserInfoVC: GFDataLoadingVC {
     
     
     func getUserInfo() {
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+        NetworkManager.shared.genericGet(for: User.self, url: username, completed: { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -59,7 +59,18 @@ class UserInfoVC: GFDataLoadingVC {
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
-        }
+        })
+//        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+//            guard let self = self else { return }
+//
+//            switch result {
+//            case .success(let user):
+//                DispatchQueue.main.async { self.configureUIElements(with: user) }
+//
+//            case .failure(let error):
+//                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//        }
     }
     
     

@@ -93,20 +93,6 @@ class FollowerListVC: GFDataLoadingVC {
             }
             self.isLoadingMoreFollowers = false
         })
-        
-        
-//        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-//            // self becomes an optional when using weak
-//            guard let self = self else { return }
-//            self.dismissLoadingView()
-//            switch result {
-//            case .success(let followers):
-//                self.updateUI(with: followers)
-//            case.failure(let error):
-//               self.presentGFAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
-//            }
-//            self.isLoadingMoreFollowers = false
-//        }
     }
     
     func updateUI(with followers: [Follower]) {
